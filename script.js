@@ -9,12 +9,15 @@ let personalMovieDB = {
     privat: false
 };
 
-let lastWatchedFilm = prompt(`What film do you watched last?`, ``),
-    ratingThisFilm = prompt(`What is your rating of this film?`, ``),
-    lastWatchedFilm2 = prompt(`What film do you watched last?`, ``),
-    ratingThisFilm2 = prompt(`What is your rating of this film?`, ``);
-
-personalMovieDB.movies[lastWatchedFilm] = ratingThisFilm;
-personalMovieDB.movies[lastWatchedFilm2] = ratingThisFilm2;
+for (let i=0; i<2; i++) {
+   let  lastWatchedFilm = prompt(`What film do you watched last?`, ``);
+   let  ratingThisFilm = prompt(`What is your rating of this film?`, ``);
+   if (lastWatchedFilm != null && ratingThisFilm !=null && lastWatchedFilm != '' && ratingThisFilm != '' && lastWatchedFilm.length<50){
+    personalMovieDB.movies[lastWatchedFilm] = ratingThisFilm;
+   } else{
+    i--;
+   }
+}
 
 console.log(personalMovieDB)
+
